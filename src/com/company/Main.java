@@ -12,16 +12,23 @@ public class Main {
         dog.name = "Szarik";
 
         Human me = new Human(1000.0);
-        me.firstName = "Kacper";
-        me.lastName = "Warda";
+        me.firstName = "John";
+        me.lastName = "Rambo";
         me.pet = dog;
+        me.cash = 2000.0;
+
+
 
         Phone onePlus = new Phone("onePlus",
                 "8Pro",
                 2.3,
                 "Android");
 
-        Phone iPhone6 = new Phone("apple", "6s", 5.0, "iOs");
+        Human seller = new Human(2000.0);
+        seller.phone = onePlus;
+        seller.cash = 20000.0;
+
+                Phone iPhone6 = new Phone("apple", "6s", 5.0, "iOs");
 
         System.out.println("phone: " + onePlus);
         System.out.println("phone: " + iPhone6);
@@ -53,5 +60,8 @@ public class Main {
         System.out.println(me.getClass().getSuperclass().getSuperclass());
         System.out.println(me.getClass().getSuperclass().getSuperclass().getSuperclass());
         System.out.println(fiat.toString());
+
+        onePlus.sell(seller,me,150.0);
+        dog.sell(me,seller,200.0);
     }
 }

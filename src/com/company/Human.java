@@ -4,11 +4,12 @@ import com.company.devices.Car;
 import com.company.devices.Phone;
 
 public class Human extends Animal {
-    String firstName;
-    String lastName;
-    Animal pet;
-    Phone phone;
-    Car car;
+    public String firstName;
+    public String lastName;
+    public Animal pet;
+    public Phone phone;
+    public Car car;
+    public double cash;
 
     public final static String HUMAN_SPECIE = "homo sapiens";
 

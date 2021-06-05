@@ -2,7 +2,7 @@ package com.company.devices;
 
 import com.company.Human;
 
-public class Phone extends Device {
+public class Phone extends Device implements Sellable {
     public final Double screenSize;
     public String os;
 
@@ -25,6 +25,17 @@ public class Phone extends Device {
 
     @Override
     public boolean sell(Human seller, Human buyer, Double price) {
+        if (seller.phone == this){
+            if (buyer.cash >= price){
+                buyer.cash -= price;
+                buyer.phone = this;
+                seller.phone = null;
+                System.out.println("Phone has been sold");
+                return true;
+
+            }
+        }
+        System.out.println("The buyer does not have enough money");
         return false;
     }
 }

@@ -1,6 +1,8 @@
 package com.company;
 
-public class Animal {
+import com.company.devices.Sellable;
+
+public class Animal implements Sellable {
     final static Double DEFAULT_DOG_WEIGHT = 6.0;
     public String name;
     final static Double DEFAULT_CAT_WEIGHT = 1.0;
@@ -44,5 +46,21 @@ public class Animal {
 
     String returnNameAndOwner(String owner) {
         return name + " " + owner;
+    }
+
+    @Override
+    public boolean sell(Human seller, Human buyer, Double price) {
+        if (seller.pet == this){
+            if (buyer.cash >= price){
+                buyer.cash -= price;
+                buyer.pet = this;
+                seller.pet = null;
+                System.out.println("Pet has been sold");
+                return true;
+            }
+        }
+
+        System.out.println("The buyer does not have enough money");
+        return false;
     }
 }
